@@ -3,7 +3,6 @@ import { Link, useHistory, useParams } from 'react-router-dom'
 import { readDeck, updateDeck } from '../../utils/api/index.js'
 
 function EditDeck({updateDecks}) {
-    // deck is originally an object with empty strings for name and description
     const [deck, editDeck] = useState({name: "", description: ""})
     const history = useHistory()
     const {deckId} = useParams()

@@ -3,33 +3,27 @@ import { Link, useHistory, useParams } from 'react-router-dom'
 
 function CardList({ cards }) {
     const [currentCard, setCurrentCard] = useState(0)
-    // set the card to be on the front side
     const [frontSide, setFrontSide] = useState(true)
     const {deckId} = useParams()
     const history = useHistory()
-    
-    // if user is on the last card in the deck, notify to restart it,
-    // or return to home page if not
+
     const nextHandler = () => {
         if (currentCard === (cards.length-1)) {
             window.confirm("Click OK to restart the deck, or CANCEL to return to the homepage.")
             ? setCurrentCard(() => 0) 
             : history.push("/")
 
-        // if not, go to next card
         } else {
             setCurrentCard((currentCard) => currentCard+1)
             setFrontSide(() => !frontSide)
         }
     }
 
-    // if user flips card, change sides
     const flipHandler = () => {
         setFrontSide(() => !frontSide)
     }
  
-    
-    // if there are more than two cards in the deck
+
     if (cards.length > 2) { 
         return (
             <div className="row p-3">

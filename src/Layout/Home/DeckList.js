@@ -3,12 +3,11 @@ import { Link, useHistory } from 'react-router-dom'
 import { deleteDeck } from '../../utils/api/index.js'
 
 function DeckList({deck, updateDecks}) {
-    // deck includes the following content
     const { id, name, description, cards } = deck
     const deckLength = cards.length
     const history = useHistory()
 
-    // delete button handler
+
     const deleteHandler = async () => {
           if (window.confirm("Are you sure you want to delete this deck? You will not be able to recover it.")) {
             await deleteDeck(id)
@@ -19,7 +18,7 @@ function DeckList({deck, updateDecks}) {
           } 
       }
 
-    // return the following content
+
       return ( 
         <div className="card w-75 mb-4">
             <div className="card-body">

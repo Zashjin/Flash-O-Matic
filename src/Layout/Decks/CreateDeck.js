@@ -4,20 +4,14 @@ import { createDeck } from '../../utils/api/index.js'
 
 
 function CreateDeck({updateDecks}) {
-    // make the original state of a new deck to contain an object
-    // with empty strings for the deck's name and description
     const [newDeck, setNewDeck] = useState({name: "", description: ""})
 
-    // create a variable to use the useHistory() hook
     const history = useHistory()
 
-    // use changeForm to take the target deck and set it contain
-    // it's current content as well as it's updated name and description
     const changeForm = ({ target }) => {
         setNewDeck({...newDeck, [target.name]: target.value})
     }
     
-    // use submitForm to create the new deck
     const submitForm = async (event) => {
         event.preventDefault()
         const response = await createDeck(newDeck)

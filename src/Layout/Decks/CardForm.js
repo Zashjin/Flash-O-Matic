@@ -1,9 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-// create a function for the card form that takes in props
-// including the card, it's deck's id, the form's submit 
-// component, and the form's change component
 function CardForm(
       { submitForm, 
         changeForm, 

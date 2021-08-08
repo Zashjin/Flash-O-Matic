@@ -13,7 +13,6 @@ import NotFound from "./NotFound"
 
 function Layout() {
   const [deckLength, setDeckLength] = useState(0)
-  // update the decks by adding the total number of decks together
   const updateDecks = (newDecks) => {
     setDeckLength(() => deckLength + newDecks)
   }
